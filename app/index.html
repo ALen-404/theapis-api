@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Ajax 发送 get 请求</h1>
+    <input type="button" value="发送put_ajax请求" id='btnAjax'>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $.ajax({
+            //请求方式
+            type: "POST",
+            //请求的媒体类型
+            dataType: 'json',
+  contentType:  'application/json',
+            //请求地址
+            url: "http://127.0.0.1:7001/create-drop",
+
+            //数据，json字符串
+            data: JSON.stringify({address:"0x6afdf721593A3673451973bEfF8c4dc076d28192",projectName:'alen',mintPrice:'100eth',mintNumberPerWalle:'alen',date:'22222123123123',Note:'xxx'}),
+            //请求成功
+            success: function (result) {
+                console.log(result);
+            },
+            //请求失败，包含具体的错误信息
+            error: function (e) {
+                console.log(e.status);
+                console.log(e.responseText);
+            }
+        });
+    </script>
+</body>
+
+</html>
